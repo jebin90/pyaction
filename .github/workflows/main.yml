@@ -40,4 +40,10 @@ jobs:
         context: .
         push: true
         tags: jebin90/pyaction:latest
+        
+    - name: Test in Docker
+      uses: docker/run-action@v2
+      with:
+        image: pyaction/fenics
+        args: python -m unittest discover -v
 
