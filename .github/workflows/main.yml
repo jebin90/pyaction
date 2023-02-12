@@ -4,6 +4,7 @@ on: [push]
 
 env:
   PYTHON_VERSION: 3.8
+  DOCKER_REGISTRY_PASSWORD: ${{ secrets.DOCKER_REGISTRY_PASSWORD }}
 
 jobs:
   build:
