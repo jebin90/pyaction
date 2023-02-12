@@ -27,7 +27,11 @@ jobs:
       run: |
         python -m unittest discover -v
         
-    - name: Deploy
+    - name: Build and push Docker image
       if: success()
-      run: |
-        echo "Deployment steps here"
+      uses: docker/build-push-action@v2
+      with:
+        context: .
+        push: true
+        tags: jebin90/pyaction:${{ env.GITHUB_SHA }}
+
