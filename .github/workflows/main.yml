@@ -42,8 +42,8 @@ jobs:
         tags: jebin90/pyaction:latest
         
     - name: Test in Docker
-      uses: docker/run-action@v4
+      uses: addnab/docker-run-action@v3
       with:
         image: pyaction/fenics
-        args: python -m unittest discover -v
+        run: python -m unittest discover -v
 
