@@ -4,7 +4,7 @@ WORKDIR /app
 COPY . /app
 
 RUN apt-get update && \
-    apt-get install -y python3-fenics
+    apt-get install -y fenics
 
 RUN pip install -r requirements.txt
 
