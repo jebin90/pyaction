@@ -1,7 +1,8 @@
 FROM python:3.8
 
 WORKDIR /app
-COPY . /app
+COPY main.py /app
+COPY test_main.py /app
 
 RUN apt-get update && \
     apt-get install -y fenics
