@@ -1,12 +1,10 @@
-FROM python:3.8
+FROM python:3.9-alpine
 
 WORKDIR /app
-COPY test_main.py /app
 COPY . /app
 
-RUN apt-get update && \
-    apt-get install -y fenics
+RUN apt-get update
 
 RUN pip install -r requirements.txt
 
-CMD ["python", "-m", "unittest", "discover", "-v"]
+CMD ["python", "-m", "./main.py"]
