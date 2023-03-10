@@ -26,7 +26,8 @@ jobs:
         push: true
         tags: jebin90/pyaction:latest
         
-    - name: Run Docker Container
+    - 
+      name: Run Docker Container
       uses: docker://jebin90/pyaction:latest
       with:
         entrypoint: python
