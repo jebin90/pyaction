@@ -29,5 +29,5 @@ jobs:
     - name: Test in Docker
       uses: addnab/docker-run-action@v3
       with:
-        run: sh -c "echo 'hello, testing'"
+        args: sh -c "echo 'hello, testing'"
 
