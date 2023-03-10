@@ -29,5 +29,5 @@ jobs:
     - name: Test in Docker
       uses: addnab/docker-run-action@v3
       with:
-        run: echo "hello, testing"
+        run: docker run jebin90/pyaction:latest /bin/bash -c "echo 'hello, testing'"
 
