@@ -144,33 +144,3 @@ plt.subplot(212)
 plt.plot(x,dtheta) 
 plt.ylabel('slope [radians]')
 plt.xlabel('X [m]')
-
-# Define the global stiffness matrix and force vector
-K = np.zeros((num_nodes, num_nodes))
-F = np.zeros(num_nodes)
-
-# Assemble the global stiffness matrix and force vector
-for i in range(num_elements):
-    Ke = get_element_stiffness_matrix()
-    Pe = P*(i+1)/num_elements
-    fe = get_element_force_vector(Pe)
-    K[i:i+2, i:i+2] += Ke
-    F[i:i+2] += fe
-
-# Define the boundary conditions
-bc_node = 0
-bc_value = 0.0
-
-# Apply the boundary conditions
-K = np.delete(K, bc_node, axis=0)
-K = np.delete(K, bc_node, axis=1)
-F = np.delete(F, bc_node)
-u = np.linalg.solve(K, F)
-u = np.insert(u, bc_node, bc_value)
-
-# Plot the displacement field
-plt.plot(x, u)
-plt.xlabel('Position (m)')
-plt.ylabel('Displacement (m)')
-plt.title('Finite Element Solution of a Cantilever Beam')
-plt.show()
