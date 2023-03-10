@@ -29,6 +29,5 @@ jobs:
     - name: Test in Docker
       uses: addnab/docker-run-action@v3
       with:
-        image: fenics/stable:py3
         args: python -m unittest discover -s /app -p 'test_main.py'
 
