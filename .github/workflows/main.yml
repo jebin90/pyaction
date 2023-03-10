@@ -26,8 +26,9 @@ jobs:
         push: true
         tags: jebin90/pyaction:latest
         
-    - name: Test in Docker
-      uses: addnab/docker-run-action@v3
+    - name: Run Docker Container
+      uses: docker://jebin90/pyaction:latest
       with:
-        args: sh "echo 'hello, testing'"
+        entrypoint: python
+        args: ./main.py
 
