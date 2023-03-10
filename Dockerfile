@@ -7,4 +7,4 @@ RUN apt-get update
 
 RUN pip install -r requirements.txt
 
-CMD ["python", "-m", "./main.py"]
+CMD ["python", "-m", "./main.py", "&"]
