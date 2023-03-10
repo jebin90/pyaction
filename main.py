@@ -4,11 +4,11 @@ import numpy as np
 E=200e9 #Young's modulus
 rho=7800. #density
 L=1. #total length
-b=0.010 #beam depth
+b=0.010 #beam width
 h=0.005 #beam height
 A=b*h #beam cross sectional area
 I=b*h**3/12 #beam moment of inertia
-N=40 #number of elements 
+N=300 #number of elements 
 Nnodes=N+1 #number of nodes
 ell=L/N #length of beam element
 Nmodes=12 #number of modes to keep
@@ -23,9 +23,9 @@ K_e=E*I/ell**3*np.array([[12, 6*ell, -12, 6*ell],
  [6*ell, 2*ell**2, -6*ell, 4*ell**2]]) #theta2
 
 
-bcs = 'clamped-clamped' # 'clamped-clamped' # 'clamped-sliding' # simplysupported # 'cantilever' Input boundary conditions here
+bcs =  'cantilever'#'clamped-clamped' # 'clamped-clamped' # 'clamped-sliding' # 'simplysupported'  # Input boundary conditions here
 
-loadcase = 'uniformpres' #'pointforce' # 'pointmoment' # 'unifromdistribmoment' Input load case here
+loadcase = 'pointforce' #'uniformpres' # 'pointmoment' # 'unifromdistribmoment' Input load case here
  # 'uniformpres' # 'concmomenteachnode'
 
 
@@ -144,3 +144,4 @@ plt.subplot(212)
 plt.plot(x,dtheta) 
 plt.ylabel('slope [radians]')
 plt.xlabel('X [m]')
+plt.show()
